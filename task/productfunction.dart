@@ -31,6 +31,7 @@ void alupuri() {
   int alupuri = int.parse(stdin.readLineSync()!);
   int total = alupuri * 40;
   print("price will be:$total");
+  anotheritem();
 }
 
 void pizza() {
@@ -38,6 +39,7 @@ void pizza() {
   int pizza = int.parse(stdin.readLineSync()!);
   int total = pizza * 500;
   print("price will be:$total");
+  anotheritem();
 }
 
 void puff() {
@@ -45,6 +47,7 @@ void puff() {
   int puff = int.parse(stdin.readLineSync()!);
   int total = puff * 25;
   print("price will be:$total");
+  anotheritem();
 }
 
 void anotheritem() {
