@@ -1,8 +1,8 @@
 import 'dart:io';
 
 void main() {
-  string name;
+  String name;
   print("enter name:");
-  name = stdin.readLineSync();
+  name = stdin.readLineSync()!;
   print("name=$name");
 }
