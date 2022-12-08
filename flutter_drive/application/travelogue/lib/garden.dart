@@ -18,7 +18,6 @@ class _webview7State extends State<webview7> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      backgroundColor: Color.fromARGB(255, 81, 165, 222),
       body: Column(children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
