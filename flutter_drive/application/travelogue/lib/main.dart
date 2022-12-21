@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:travelogue/education.dart';
 import 'package:travelogue/first.dart';
-import 'package:travelogue/history.dart';
+import 'package:travelogue/homescreen/pages/history/history.dart';
+import 'package:travelogue/homescreen/pages/travel/travels.dart';
 
 void main() {
   runApp(MaterialApp(

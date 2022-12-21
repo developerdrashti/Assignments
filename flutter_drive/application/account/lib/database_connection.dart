@@ -15,13 +15,14 @@ class DatabaseConnection {
 
   Future<void> Createdatabase(Database database, int version) async {
     print("Database crete");
-
-    await database.execute(
-        "create table my_budget(id INTEGER  PRIMARY KEY AUTOINCREMENT , month TEXT, amount integer,created_at TEXT )");
-
-    await database.execute(
-        "create table my_expence(id INTEGER PRIMERY KEY auto_increment, month TEXT,title TEXT, amount Text , created_at  INTEGER DEFAULT(cast(strftime('%s','now')as int)))");
-    await database.execute(
-        "create table my_saving(id INTEGER PRIMERY KEY auto_increment, month TEXT,title TEXT, amount Text , created_at  INTEGER DEFAULT(cast(strftime('%s','now')as int)))");
+    String sql =
+        "create table my_budget(id INTEGER  PRIMARY KEY AUTOINCREMENT , month TEXT, amount INTEGER,created_at TEXT )";
+    await database.execute(sql);
+    String sql1 =
+        "create table my_saving(id INTEGER  PRIMARY KEY AUTOINCREMENT ,  title TEXT ,amount INTEGER , type TEXT )";
+    await database.execute(sql1);
+    String sql2 =
+        "create table my_expence(id INTEGER  PRIMARY KEY AUTOINCREMENT , month TEXT, title TEXT ,amount INTEGER,created_at TEXT )";
+    await database.execute(sql2);
   }
 }

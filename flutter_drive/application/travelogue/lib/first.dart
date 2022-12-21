@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:travelogue/homescreen.dart';
+import 'package:travelogue/homescreen/homescreen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
