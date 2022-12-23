@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 class DatabaseConnection {
   Future<Database> setDatabase() async {
     var directory = await getApplicationDocumentsDirectory();
-    var path = join(directory.path, "income");
+    var path = join(directory.path, "mydb");
 
     var database =
         await openDatabase(path, version: 1, onCreate: Createdatabase);
@@ -16,11 +16,6 @@ class DatabaseConnection {
     print("Database crete");
 
     await database.execute(
-        "create table my_budget(id INTEGER  PRIMARY KEY AUTOINCREMENT , month TEXT, amount integer,created_at TEXT ,date integer,time integerd`)");
-
-    await database.execute(
-        "create table my_expence(id INTEGER PRIMERY KEY auto_increment, month TEXT,title TEXT, amount Text , created_at  INTEGER DEFAULT(cast(strftime('%s','now')as int)))");
-    await database.execute(
-        "create table my_saving(id INTEGER PRIMERY KEY auto_increment, month TEXT,title TEXT, amount Text , created_at  INTEGER DEFAULT(cast(strftime('%s','now')as int)))");
+        "create table income(id INTEGER  PRIMARY KEY AUTOINCREMENT , name TEXT, amount integer,mode TEXT ,date TEXT,time TEXT)");
   }
 }

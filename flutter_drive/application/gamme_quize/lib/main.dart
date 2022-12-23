@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamme_quize/Start_ganme.dart';
+import 'package:gamme_quize/homepage.dart';
 
 main() {
   runApp(MyGame());
@@ -17,7 +18,7 @@ class _MyGameState extends State<MyGame> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: game_Quiz(),
+      home: homepage(),
     );
   }
 }

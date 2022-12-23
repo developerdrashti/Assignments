@@ -4,38 +4,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gamme_quize/05.dart';
+import 'package:gamme_quize/07.dart';
 // import 'package:image_games/homepage.dart';
 // import 'package:image_games/qustions/q2.dart';
 // import 'package:image_games/qustions/q3.dart';
 // import 'package:image_games/qustions/q4.dart';
 // import 'package:image_games/qustions/q5.dart';
+// import 'package:image_games/qustions/q6.dart';
+// import 'package:image_games/qustions/q7.dart';
 // import 'package:simple_timer/simple_timer.dart';
 
 final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
-class q4 extends StatefulWidget {
-  int? r6;
-  q4({super.key, @required this.r6});
+class q6 extends StatefulWidget {
+  int? r10;
+  q6({super.key, @required this.r10});
 
   @override
-  State<q4> createState() => _Guess1State();
+  State<q6> createState() => _Guess1State();
 }
 
-class _Guess1State extends State<q4> {
-  int r7 = 0;
+class _Guess1State extends State<q6> {
+  int? r11;
   bool isLogoVisible = true;
   List _selectedIndexs = [];
   List qustion = [
-    'A) Audi',
-    'B) Free logo',
-    'B) Red ribbon',
-    'D) audi',
+    'A) Flutter',
+    'B) Python',
+    'B) PHP',
+    'D) JAVA',
   ];
   List<int> score = [
-    0,
-    0,
     5,
+    0,
+    0,
     0,
   ];
 
@@ -47,8 +49,8 @@ class _Guess1State extends State<q4> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => q5(
-                    r8: r7!,
+              builder: ((context) => q7(
+                    r13: r11!,
                   ))));
     });
     super.initState();
@@ -69,7 +71,7 @@ class _Guess1State extends State<q4> {
                     child: Visibility(
                         visible: isLogoVisible,
                         child: Image.network(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMSx0KZI3nc2gOVLuJOB3-J5JXJDQdrTyVAQ&usqp=CAU",
+                          "https://pixlok.com/wp-content/uploads/2021/05/flutter-logo-768x768.jpg",
                           fit: BoxFit.fill,
                         )),
                   ),
@@ -86,8 +88,9 @@ class _Guess1State extends State<q4> {
                           onTap: () {
                             setState(() {
                               print(score[index]);
-                              r7 = widget.r6! + score[index];
-                              print(r7);
+                              r11 = widget.r10! + score[index];
+                              print(r11);
+
                               if (_isSelected) {
                                 _selectedIndexs.remove(index);
                                 print("is selected");

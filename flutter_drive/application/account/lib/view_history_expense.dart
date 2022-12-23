@@ -78,28 +78,81 @@ class viewhisryState extends State<ViewExpence> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 235, 221, 243),
-      appBar: AppBar(
-        // backgroundColor: const Color.fromARGB(255, 235, 221, 243),
-        title: Text("view expense history"),
-      ),
-      body: ListView.builder(
-          itemCount: _expencehistoryList.length,
-          itemBuilder: ((context, index) {
-            return Card(
-                child: ListTile(
-              onTap: () {
-                _deleteexpenceEntry(context, _expencehistoryList[index].id);
-              },
-              leading: Icon(Icons.money_off_rounded),
-              title: Text(
-                _expencehistoryList[index].amount.toString(),
-                style: TextStyle(fontSize: 20, color: Colors.blue),
-              ),
-              subtitle: Text(_expencehistoryList[index].title ?? ""),
-              trailing: Text(_expencehistoryList[index].created_at.toString()),
-            ));
-          })),
-    );
+        backgroundColor: const Color.fromARGB(255, 235, 221, 243),
+        appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.only(left: 30),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+          ),
+          toolbarHeight: 120.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(60),
+            ),
+          ),
+          centerTitle: true,
+          title: Text(
+            "View Expense History",
+            style: TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 244, 244, 251),
+                fontWeight: FontWeight.w400),
+          ),
+          backgroundColor: Color.fromARGB(255, 110, 86, 11),
+        ),
+        body: Column(children: [
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: _expencehistoryList.length,
+                itemBuilder: ((context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    elevation: 10,
+                    child: ListTile(
+                        onTap: () {},
+                        leading: Icon(
+                          Icons.arrow_circle_up_sharp,
+                          color: Colors.green,
+                          size: 50,
+                        ),
+                        title: Text(
+                          '${_expencehistoryList[index].month.toString()}',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
+                        ),
+                        subtitle: Text(
+                          '₹${_expencehistoryList[index].amount.toString()}',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w500),
+                        ),
+                        trailing: Icon(
+                          Icons.delete,
+                        )),
+                  );
+                  // body: ListView.builder(
+                  //     itemCount: _expencehistoryList.length,
+                  //     itemBuilder: ((context, index) {
+                  //       return Card(
+                  //           child: ListTile(
+                  //         onTap: () {
+                  //           _deleteexpenceEntry(context, _expencehistoryList[index].id);
+                  //         },
+                  //         leading: Icon(Icons.money_off_rounded),
+                  //         title: Text(
+                  //           _expencehistoryList[index].amount.toString(),
+                  //           style: TextStyle(fontSize: 20, color: Colors.blue),
+                  //         ),
+                  //         subtitle: Text(_expencehistoryList[index].title ?? ""),
+                  //         trailing: Text(_expencehistoryList[index].created_at.toString()),
+                  //       ));
+                })),
+          )
+        ]));
   }
 }

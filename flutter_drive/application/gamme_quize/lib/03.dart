@@ -1,144 +1,135 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gamme_quize/02.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gamme_quize/04.dart';
-import 'package:gamme_quize/Start_ganme.dart';
+// import 'package:image_games/homepage.dart';
+// import 'package:image_games/qustions/q2.dart';
+// import 'package:image_games/qustions/q3.dart';
+// import 'package:image_games/qustions/q4.dart';
+// import 'package:simple_timer/simple_timer.dart';
 
-class third extends StatefulWidget {
-  const third({super.key});
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+class q3 extends StatefulWidget {
+  int? r4;
+  q3({super.key, @required this.r4});
 
   @override
-  State<third> createState() => _GameState();
+  State<q3> createState() => _Guess1State();
 }
 
-class _GameState extends State<third> {
+class _Guess1State extends State<q3> {
   bool isLogoVisible = true;
-  TextEditingController myedit = TextEditingController();
-  var tru = 0;
-  var fls = 0;
-  var totle = 0;
-  String? result = "Ans";
+  int r5 = 0;
+  List _selectedIndexs = [];
+  List qustion = [
+    'A) mostly',
+    'B) none',
+    'B) slow',
+    'D) speed',
+  ];
+  List<int> score = [
+    0,
+    0,
+    0,
+    5,
+  ];
+
+  // instantiation
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 5), () {
-      isLogoVisible = false;
-      setState(() {});
+    
+    Timer(const Duration(seconds: 8), () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => q4(
+                    r6: r5!,
+                  ))));
     });
-
-    // TODO: implement initState
     super.initState();
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(title: Text("GAME")),
-      backgroundColor: Color.fromARGB(255, 134, 159, 172),
-      body: Column(children: [
-        SizedBox(
-          height: 40,
-        ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height / 5,
-          child: Visibility(
-              visible: isLogoVisible,
-              child: Text(
-                "What game studio makes the Red Dead Redemption series? ",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
-              )),
-        ),
-        SizedBox(
-          height: 70,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              child: ElevatedButton(
-                child: Text("ROCKSTAR GAMES"),
-                onPressed: () {
-                  tru = 10;
-                  totle = (tru + totle);
-                  setState(() {
-                    result = "Right";
-                  });
-                  myedit.text = "";
-                },
-              ),
-            ),
-            Container(
-              child: ElevatedButton(
-                child: Text("LYNCH"),
-                onPressed: () {
-                  fls = -10;
-                  totle = (fls + totle);
-                  setState(() {
-                    result = "Wrong";
-                  });
-                  myedit.text = "";
-                },
-              ),
-            ),
-            Column(
-              children: [
-                Container(
-                  child: ElevatedButton(
-                    child: Text("BENDER"),
-                    onPressed: () {
-                      fls = -10;
-                      totle = (fls + totle);
-                      setState(() {
-                        result = "Right";
-                      });
-                      myedit.text = "";
-                    },
+    return SafeArea(
+        child: Scaffold(
+            body: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Column(children: [
+                  SizedBox(
+                    height: 60,
                   ),
-                ),
-              ],
-            ),
-            Container(
-              child: ElevatedButton(
-                child: Text("MAD DOG"),
-                onPressed: () {
-                  fls = -10;
-                  totle = (fls + totle);
-                  setState(() {
-                    result = "Wrong";
-                  });
-                  myedit.text = "";
-                },
-              ),
-            )
-          ],
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              result.toString(),
-              style: TextStyle(color: Colors.red, fontSize: 38),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => fourth())));
-          },
-          child: Text("Next"),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.red),
-          ),
-        ),
-      ]),
-    );
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 4,
+                    child: Visibility(
+                        visible: isLogoVisible,
+                        child: Image.network(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC8lJQQiWoUQWYcuy9d1RLs3TfkN6kwR1OrA&usqp=CAU",
+                          fit: BoxFit.fill,
+                        )),
+                  ),
+                  SizedBox(
+                    height: 90,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        final _isSelected = _selectedIndexs.contains(index);
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              print(score[index]);
+                              r5 = widget.r4! + score[index];
+                              print(r5);
+                              if (_isSelected) {
+                                _selectedIndexs.remove(index);
+                                print("is selected");
+                              } else {
+                                _selectedIndexs.add(index);
+                              }
+                            });
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(10),
+                            padding: EdgeInsets.only(top: 15, left: 30),
+                            height: MediaQuery.of(context).size.height / 15,
+                            width: MediaQuery.of(context).size.width / 1.3,
+                            decoration: BoxDecoration(
+                                color: _isSelected
+                                    ? Colors.red
+                                    : Colors.indigo[900],
+                                borderRadius: BorderRadius.circular(50),
+                                // gradient: new LinearGradient(colors: [
+                                //   Color.fromARGB(255, 61, 51, 144),
+                                //   Color.fromARGB(255, 44, 28, 167),
+                                // ]),
+                                boxShadow: [
+                                  new BoxShadow(
+                                    color: Colors.grey,
+                                    blurRadius: 20.0,
+                                    spreadRadius: 1.0,
+                                  )
+                                ]),
+                            child: Text(
+                              qustion[index],
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ]))));
   }
 }

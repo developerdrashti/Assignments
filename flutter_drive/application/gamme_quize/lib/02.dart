@@ -1,146 +1,137 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gamme_quize/03.dart';
-import 'package:gamme_quize/Start_ganme.dart';
+// import 'package:image_games/homepage.dart';
+// import 'package:image_games/qustions/q2.dart';
+// import 'package:image_games/qustions/q3.dart';
+// import 'package:simple_timer/simple_timer.dart';
 
-class second extends StatefulWidget {
-  const second({super.key});
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+class q2 extends StatefulWidget {
+  int r2;
+  q2({super.key, required this.r2});
 
   @override
-  State<second> createState() => _GameState();
+  State<q2> createState() => _Guess1State();
 }
 
-class _GameState extends State<second> {
+class _Guess1State extends State<q2> {
+  int? r3;
   bool isLogoVisible = true;
-  TextEditingController myedit = TextEditingController();
-  var tru = 0;
-  var fls = 0;
-  var totle = 0;
-  String? result = "Ans";
+  List _selectedIndexs = [];
+  List qustion = [
+    'A) Audi',
+    'B) Ferrari',
+    'B) Mercedes',
+    'D) Hyundai',
+  ];
+  List<int> score = [
+    0,
+    5,
+    0,
+    0,
+  ];
+
+  // instantiation
 
   @override
-  void InitState() {
-    Future.delayed(
-        Duration(
-          seconds: 3,
-        ), () {
+  void initState() {
+    Future.delayed(const Duration(seconds: 3), () {
+      isLogoVisible = false;
+      setState(() {});
+    });
+    Timer(const Duration(seconds: 8), () {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => third(),
-          ));
+              builder: ((context) => q3(
+                    r4: r3,
+                  ))));
     });
+    super.initState();
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 134, 159, 172),
-      // appBar: AppBar(title: Text("GAME")),
-      body: Column(children: [
-        SizedBox(
-          height: 40,
-        ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height / 5,
-          child: Visibility(
-            visible: isLogoVisible,
-            child: Image.network(
-              "https://media.istockphoto.com/photos/qutub-minar-picture-id179542718?b=1&k=20&m=179542718&s=170667a&w=0&h=ySo9Zhaf17BLZ4Ep2lyMhT6NAYWPHxxPMTFb2XNHzBY=",
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 70,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              child: ElevatedButton(
-                child: Text("QUTUB_MINAR"),
-                onPressed: () {
-                  tru = 10;
-                  totle = (tru + totle);
-                  setState(() {
-                    result = "Right";
-                  });
-                  myedit.text = "";
-                },
-              ),
-            ),
-            Container(
-              child: ElevatedButton(
-                child: Text("LAL KILA"),
-                onPressed: () {
-                  fls = -10;
-                  totle = (fls + totle);
-                  setState(() {
-                    result = "Wrong";
-                  });
-                  myedit.text = "";
-                },
-              ),
-            ),
-            Column(
-              children: [
-                Container(
-                  child: ElevatedButton(
-                    child: Text("AGRA"),
-                    onPressed: () {
-                      fls = -10;
-                      totle = (fls + totle);
-                      setState(() {
-                        result = "Wrong";
-                      });
-                      myedit.text = "";
-                    },
+    return SafeArea(
+        child: Scaffold(
+            body: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Column(children: [
+                  SizedBox(
+                    height: 60,
                   ),
-                ),
-              ],
-            ),
-            Container(
-              child: ElevatedButton(
-                child: Text("TEMPLE"),
-                onPressed: () {
-                  fls = -10;
-                  totle = (fls + totle);
-                  setState(() {
-                    result = "Wrong";
-                  });
-                  myedit.text = "";
-                },
-              ),
-            )
-          ],
-        ),
-        SizedBox(
-          height: 50,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              result.toString(),
-              style: TextStyle(color: Colors.red, fontSize: 38),
-            )
-          ],
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => third())));
-          },
-          child: Text("Next"),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.red),
-          ),
-        ),
-      ]),
-    );
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 4,
+                    child: Visibility(
+                        visible: isLogoVisible,
+                        child: Image.network(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyafPxCfm_uCm4VETThWR47aYB3-W3zIHqHQ&usqp=CAU",
+                          fit: BoxFit.fill,
+                        )),
+                  ),
+                  SizedBox(
+                    height: 90,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        final _isSelected = _selectedIndexs.contains(index);
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              print(score[index]);
+                              r3 = widget.r2 + score[index];
+                              print(r3);
+                              if (_isSelected) {
+                                _selectedIndexs.remove(index);
+                                print("is selected");
+                              } else {
+                                _selectedIndexs.add(index);
+                              }
+                            });
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(10),
+                            padding: EdgeInsets.only(top: 15, left: 30),
+                            height: MediaQuery.of(context).size.height / 15,
+                            width: MediaQuery.of(context).size.width / 1.3,
+                            decoration: BoxDecoration(
+                                color: _isSelected
+                                    ? Colors.red
+                                    : Colors.indigo[900],
+                                borderRadius: BorderRadius.circular(50),
+                                // gradient: new LinearGradient(colors: [
+                                //   Color.fromARGB(255, 61, 51, 144),
+                                //   Color.fromARGB(255, 44, 28, 167),
+                                // ]),
+                                boxShadow: [
+                                  new BoxShadow(
+                                    color: Colors.grey,
+                                    blurRadius: 20.0,
+                                    spreadRadius: 1.0,
+                                  )
+                                ]),
+                            child: Text(
+                              qustion[index],
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ]))));
   }
 }

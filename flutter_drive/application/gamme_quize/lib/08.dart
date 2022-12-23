@@ -4,38 +4,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gamme_quize/05.dart';
+import 'package:gamme_quize/gameover.dart';
 // import 'package:image_games/homepage.dart';
 // import 'package:image_games/qustions/q2.dart';
 // import 'package:image_games/qustions/q3.dart';
 // import 'package:image_games/qustions/q4.dart';
 // import 'package:image_games/qustions/q5.dart';
+// import 'package:image_games/qustions/q6.dart';
+// import 'package:image_games/qustions/q7.dart';
+// import 'package:image_games/qustions/q8.dart';
+// import 'package:image_games/qustions/q9.dart';
 // import 'package:simple_timer/simple_timer.dart';
 
 final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
-class q4 extends StatefulWidget {
-  int? r6;
-  q4({super.key, @required this.r6});
+class q8 extends StatefulWidget {
+  int? r14;
+  q8({super.key, @required this.r14});
 
   @override
-  State<q4> createState() => _Guess1State();
+  State<q8> createState() => _Guess1State();
 }
 
-class _Guess1State extends State<q4> {
-  int r7 = 0;
+class _Guess1State extends State<q8> {
+  int? r15;
   bool isLogoVisible = true;
   List _selectedIndexs = [];
   List qustion = [
-    'A) Audi',
-    'B) Free logo',
-    'B) Red ribbon',
-    'D) audi',
+    'A) H.M',
+    'B) MC donalds ',
+    'B) Ocatin.',
+    'D) HoCCo',
   ];
   List<int> score = [
     0,
-    0,
     5,
+    0,
     0,
   ];
 
@@ -47,8 +51,8 @@ class _Guess1State extends State<q4> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => q5(
-                    r8: r7!,
+              builder: ((context) => gameover(
+                    finalscore: r15!,
                   ))));
     });
     super.initState();
@@ -69,7 +73,7 @@ class _Guess1State extends State<q4> {
                     child: Visibility(
                         visible: isLogoVisible,
                         child: Image.network(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMSx0KZI3nc2gOVLuJOB3-J5JXJDQdrTyVAQ&usqp=CAU",
+                          "https://1000logos.net/wp-content/uploads/2017/03/McDonalds-logo.png",
                           fit: BoxFit.fill,
                         )),
                   ),
@@ -86,8 +90,7 @@ class _Guess1State extends State<q4> {
                           onTap: () {
                             setState(() {
                               print(score[index]);
-                              r7 = widget.r6! + score[index];
-                              print(r7);
+                              r15 = widget.r14! + score[index];
                               if (_isSelected) {
                                 _selectedIndexs.remove(index);
                                 print("is selected");

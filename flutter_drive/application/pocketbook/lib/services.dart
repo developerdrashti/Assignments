@@ -1,6 +1,3 @@
-
-
-
 import 'package:pocketbook/repo.dart';
 
 class Myservices {
@@ -9,7 +6,7 @@ class Myservices {
     _repository = Repository();
   }
 
-  insertBudgetService( myBudget ) async {
+  insertBudgetService(myBudget) async {
     print('INSERT SUCCESS');
     return await _repository.insertBudget("income", myBudget.MyBudgetMap());
   }

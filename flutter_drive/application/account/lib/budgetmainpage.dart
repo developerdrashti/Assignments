@@ -123,20 +123,7 @@ class _budgetMainPageState extends State<budgetMainPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ListTile(
-                leading: Icon(
-                  Icons.cancel_outlined,
-                  color: Colors.black,
-                  size: 25,
-                ),
-                title: Text(
-                  "Add transaction",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
+              const ListTile(),
               Container(
                 color: Colors.black12,
                 height: 1,
@@ -144,32 +131,45 @@ class _budgetMainPageState extends State<budgetMainPage> {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 70, top: 30),
-                child: Text(
-                  "YOUR BALANCE",
-                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 90,
+                    ),
+                    Text(
+                      "YOUR BALANCE",
+                      style:
+                          TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      "₹${addbalance = addmoney - AddEpense}.00",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 148, 147, 147)),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
-                height: 120,
+                height: 110,
               ),
-              Text(
-                "RS.${addbalance = addmoney - AddEpense}",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const Padding(padding: EdgeInsets.only(top: 10)),
               const Text(
-                "What kind of \ntransaction it is? ",
+                "What kind of transaction it is? ",
                 style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w900,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
                   color: Color.fromARGB(146, 0, 0, 0),
                 ),
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width - 100,
+                height: MediaQuery.of(context).size.width - 120,
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: budgetTitleList.length,
@@ -214,15 +214,21 @@ class _budgetMainPageState extends State<budgetMainPage> {
                   },
                 ),
               ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: (() {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => viewsaving())));
-                  }),
-                  child: Text("Show All Transaction"),
+              Center(
+                child: Expanded(
+                  child: GestureDetector(
+                    onTap: (() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => viewsaving())));
+                    }),
+                    child: Text(
+                      "Show All Transaction",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    ),
+                  ),
                 ),
               )
             ],
@@ -256,154 +262,193 @@ class _myBudgetState extends State<myBudget> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 235, 221, 243),
       appBar: AppBar(
-          leading: IconButton(
-              onPressed: (() {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => viewBudget()));
-              }),
-              icon: Icon(Icons.navigate_next))),
-      body: Container(
-        margin: EdgeInsets.only(top: 130),
-        width: double.maxFinite,
-        child: Column(
-          children: [
-            Text(
-              "BUDGET",
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Color.fromARGB(255, 42, 42, 100),
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 42, 100),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                controller: monthcontroller,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.calendar_month,
-                    color: Color.fromARGB(255, 215, 211, 211),
-                  ),
-                  errorStyle: TextStyle(
-                    color: Colors.red,
-                  ),
-                  hintText: "Enter Month",
-                  hintStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  labelText: "month",
-                  errorText: monthValidator ? "field error " : null,
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 215, 211, 211), width: 2),
-                  ),
-                ),
-                onTap: () {},
-                cursorColor: Colors.brown,
-              ),
-            ),
-            SizedBox(height: 30),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 42, 100),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                keyboardType: TextInputType.number,
-                controller: amountController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.money,
-                    color: Color.fromARGB(255, 215, 211, 211),
-                  ),
-                  errorStyle: TextStyle(
-                    color: Colors.red,
-                  ),
-                  hintText: "Enter amount",
-                  hintStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  labelText: "amount",
-                  errorText: amountValidator ? "field error " : null,
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 2),
-                  ),
-                ),
-                onTap: () {},
-                cursorColor: Colors.brown,
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 30),
+          child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        ),
+        toolbarHeight: 120.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(60),
+          ),
+        ),
+        centerTitle: true,
+        title: Text(
+          "Budget",
+          style: TextStyle(
+              fontSize: 25,
+              color: Color.fromARGB(255, 244, 244, 251),
+              fontWeight: FontWeight.w700),
+        ),
+        backgroundColor: Color.fromARGB(255, 110, 86, 11),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(top: 130),
+          width: double.maxFinite,
+          child: Container(
+            child: Column(
               children: [
-                ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        monthcontroller.text.isEmpty
-                            ? monthValidator = true
-                            : monthValidator = false;
-                        amountController.text.isEmpty
-                            ? amountValidator = true
-                            : amountValidator = false;
-                      });
+                Container(
+                  margin: EdgeInsets.all(20),
+                  width: double.maxFinite,
+                  child: TextFormField(
+                    controller: monthcontroller,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 14, 69, 83),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    decoration: InputDecoration(
+                      errorText: monthValidator ? "field error " : null,
+                      focusColor: Colors.white,
+                      //add prefix icon
+                      prefixIcon: Icon(
+                        Icons.calendar_month_rounded,
+                        color: Color.fromARGB(248, 141, 115, 29),
+                      ),
 
-                      if (monthValidator == false && amountValidator == false) {
-                        var mybudget = MyBudget();
-                        mybudget.month = monthcontroller.text;
-                        mybudget.amount =
-                            int.parse(amountController.text.toString());
+                      labelText: 'Enter Month',
 
-                        var now = new DateTime.now();
-                        var formatter = new DateFormat('dd-MM-yyyy');
-                        formattedDate = formatter.format(now);
+                      labelStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(248, 141, 115, 29),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
 
-                        mybudget.created_at = formattedDate;
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(248, 255, 219, 99),
+                            width: 1.0),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      fillColor: Color.fromARGB(255, 123, 246, 255),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(20),
+                  width: double.maxFinite,
+                  child: TextFormField(
+                    controller: amountController,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 14, 69, 83),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    decoration: InputDecoration(
+                      errorText: amountValidator ? "field error " : null,
+                      focusColor: Colors.white,
+                      //add prefix icon
+                      prefixIcon: Icon(
+                        Icons.currency_rupee_outlined,
+                        color: Color.fromARGB(248, 141, 115, 29),
+                      ),
 
-                        var result = myservices.insertBudgetService(mybudget);
-                        print("============$result=================");
+                      labelText: 'Enter Amount',
 
-                        print("============$formattedDate=================");
-                        var _mybsaving = MySaving();
-                        _mybsaving.title = monthcontroller.text.toString();
-                        _mybsaving.amount =
-                            int.parse(amountController.text.toString());
+                      labelStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(248, 141, 115, 29),
+                        fontWeight: FontWeight.w600,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
 
-                        _mybsaving.type = "Income";
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(248, 255, 219, 99),
+                            width: 1.0),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      fillColor: Color.fromARGB(255, 123, 246, 255),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        child: Text('Save'),
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 99, 78, 12),
+                          minimumSize: Size(110, 40),
+                          onPrimary: Colors.white,
+                          shadowColor: Colors.red,
+                          elevation: 5,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            monthcontroller.text.isEmpty
+                                ? monthValidator = true
+                                : monthValidator = false;
+                            amountController.text.isEmpty
+                                ? amountValidator = true
+                                : amountValidator = false;
+                          });
 
-                        var resultShaving =
-                            myservices.insertSAvings(_mybsaving);
+                          if (monthValidator == false &&
+                              amountValidator == false) {
+                            var mybudget = MyBudget();
+                            mybudget.month = monthcontroller.text;
+                            mybudget.amount =
+                                int.parse(amountController.text.toString());
 
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => viewBudget(),
-                            ));
-                      }
-                    },
-                    child: Text("Save Data")),
-                ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        monthcontroller.text = "";
-                        amountController.text = "";
-                      });
-                    },
-                    child: Text("Clear")),
+                            var now = new DateTime.now();
+                            var formatter = new DateFormat('dd-MM-yyyy');
+                            formattedDate = formatter.format(now);
+
+                            mybudget.created_at = formattedDate;
+
+                            var result =
+                                myservices.insertBudgetService(mybudget);
+                            print("============$result=================");
+
+                            print(
+                                "============$formattedDate=================");
+                            var _mybsaving = MySaving();
+                            _mybsaving.title = monthcontroller.text.toString();
+                            _mybsaving.amount =
+                                int.parse(amountController.text.toString());
+
+                            _mybsaving.type = "Income";
+
+                            var resultShaving =
+                                myservices.insertSAvings(_mybsaving);
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => viewBudget(),
+                                ));
+                          }
+                        }),
+                    ElevatedButton(
+                      child: Text('Clear'),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(110, 40),
+                        primary: Color.fromARGB(255, 99, 78, 12),
+                        onPrimary: Colors.white,
+                        shadowColor: Colors.red,
+                        elevation: 5,
+                      ),
+                      onPressed: () {
+                        setState(() {});
+                        print('Pressed');
+                      },
+                    )
+                  ],
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
@@ -434,125 +479,148 @@ class _myexpenceState extends State<myexpence> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 235, 221, 243),
-      appBar: AppBar(
-          leading: IconButton(
-              onPressed: (() {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ViewExpence()));
-              }),
-              icon: Icon(Icons.navigate_next))),
-      body: Container(
-        margin: EdgeInsets.only(top: 80),
-        width: double.maxFinite,
-        child: Column(
-          children: [
-            Text(
-              "EXPENCE",
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Color.fromARGB(255, 42, 42, 100),
-                  fontWeight: FontWeight.bold),
+        backgroundColor: const Color.fromARGB(255, 235, 221, 243),
+        appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.only(left: 30),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+          ),
+          toolbarHeight: 120.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(60),
             ),
-            SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 42, 100),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                controller: titleControler,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.title_sharp,
-                    color: Color.fromARGB(255, 215, 211, 211),
-                  ),
-                  errorStyle: TextStyle(
-                    color: Colors.red,
-                  ),
-                  hintText: "Enter title",
-                  hintStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  labelText: "title",
-                  errorText: monthValidator ? "field error " : null,
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 215, 211, 211), width: 2),
-                  ),
-                ),
-                onTap: () {},
-                cursorColor: Colors.brown,
-              ),
-            ),
+          ),
+          centerTitle: true,
+          title: Text(
+            "Expence",
+            style: TextStyle(
+                fontSize: 25,
+                color: Color.fromARGB(255, 244, 244, 251),
+                fontWeight: FontWeight.w700),
+          ),
+          backgroundColor: Color.fromARGB(255, 110, 86, 11),
+        ),
+        body: SingleChildScrollView(
+          child: Column(children: [
             SizedBox(
               height: 30,
             ),
             Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 42, 100),
-                borderRadius: BorderRadius.circular(10),
-              ),
+              margin: EdgeInsets.all(20),
+              width: double.maxFinite,
               child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
                 controller: monthcontroller,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.calendar_month,
-                    color: Color.fromARGB(255, 215, 211, 211),
-                  ),
-                  errorStyle: TextStyle(
-                    color: Colors.red,
-                  ),
-                  hintText: "Enter Month",
-                  hintStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  labelText: "month",
-                  errorText: monthValidator ? "field error " : null,
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 215, 211, 211), width: 2),
-                  ),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 14, 69, 83),
+                  fontWeight: FontWeight.w500,
                 ),
-                onTap: () {},
-                cursorColor: Colors.brown,
+                decoration: InputDecoration(
+                  errorText: monthValidator ? "field error " : null,
+                  focusColor: Colors.white,
+                  //add prefix icon
+                  prefixIcon: Icon(
+                    Icons.calendar_month_rounded,
+                    color: Color.fromARGB(248, 141, 115, 29),
+                  ),
+
+                  labelText: 'Enter Month',
+
+                  labelStyle: TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(248, 141, 115, 29),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        color: Color.fromARGB(248, 255, 219, 99), width: 1.0),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  fillColor: Color.fromARGB(255, 123, 246, 255),
+                ),
               ),
             ),
-            SizedBox(height: 30),
             Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 42, 42, 100),
-                borderRadius: BorderRadius.circular(10),
-              ),
+              margin: EdgeInsets.all(20),
+              width: double.maxFinite,
               child: TextFormField(
-                style: TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
                 controller: amountController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.currency_rupee,
-                    color: Color.fromARGB(255, 215, 211, 211),
-                  ),
-                  errorStyle: TextStyle(
-                    color: Colors.red,
-                  ),
-                  hintText: "Enter amount",
-                  hintStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  labelText: "amount",
-                  errorText: monthValidator ? "field error " : null,
-                  labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 215, 211, 211)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 215, 211, 211), width: 2),
-                  ),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 14, 69, 83),
+                  fontWeight: FontWeight.w500,
                 ),
-                onTap: () {},
-                cursorColor: Colors.brown,
+                decoration: InputDecoration(
+                  errorText: amountValidator ? "field error " : null,
+                  focusColor: Colors.white,
+                  //add prefix icon
+                  prefixIcon: Icon(
+                    Icons.currency_rupee_outlined,
+                    color: Color.fromARGB(248, 141, 115, 29),
+                  ),
+
+                  labelText: 'Enter Amount',
+
+                  labelStyle: TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(248, 141, 115, 29),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        color: Color.fromARGB(248, 255, 219, 99), width: 1.0),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  fillColor: Color.fromARGB(255, 123, 246, 255),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(20),
+              width: double.maxFinite,
+              child: TextFormField(
+                controller: titleControler,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 14, 69, 83),
+                  fontWeight: FontWeight.w500,
+                ),
+                decoration: InputDecoration(
+                  errorText: titlevalidator ? "field error " : null,
+                  focusColor: Colors.white,
+                  //add prefix icon
+                  prefixIcon: Icon(
+                    Icons.currency_rupee_outlined,
+                    color: Color.fromARGB(248, 141, 115, 29),
+                  ),
+
+                  labelText: 'Enter Title',
+
+                  labelStyle: TextStyle(
+                    fontSize: 16,
+                    color: Color.fromARGB(248, 141, 115, 29),
+                    fontWeight: FontWeight.w600,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        color: Color.fromARGB(248, 255, 219, 99), width: 1.0),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  fillColor: Color.fromARGB(255, 123, 246, 255),
+                ),
               ),
             ),
             SizedBox(height: 30),
@@ -560,71 +628,77 @@ class _myexpenceState extends State<myexpence> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        //for validation we fecth details from conntroller and check is it empty or not
-                        monthcontroller.text.isEmpty
-                            ? monthValidator = true
-                            : monthValidator = false;
-                        amountController.text.isEmpty
-                            ? amountValidator = true
-                            : amountValidator = false;
-                        titleControler.text.isEmpty
-                            ? titlevalidator = true
-                            : titlevalidator = false;
-                      });
+                  child: Text('Save'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 99, 78, 12),
+                    minimumSize: Size(110, 40),
+                    onPrimary: Colors.white,
+                    shadowColor: Colors.red,
+                    elevation: 5,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      monthcontroller.text.isEmpty
+                          ? monthValidator = true
+                          : monthValidator = false;
+                      amountController.text.isEmpty
+                          ? amountValidator = true
+                          : amountValidator = false;
+                      titleControler.text.isEmpty
+                          ? titlevalidator = true
+                          : titlevalidator = false;
+                    });
 
-                      if (monthValidator == false &&
-                          amountValidator == false &&
-                          titlevalidator == false) {
-                        var myexpence = MyExpence();
-                        myexpence.month = monthcontroller.text;
-                        myexpence.amount =
-                            int.parse(amountController.text.toString());
-                        myexpence.title = titleControler.text.toString();
+                    if (monthValidator == false &&
+                        amountValidator == false &&
+                        titlevalidator == false) {
+                      var myexpence = MyExpence();
+                      myexpence.month = monthcontroller.text;
+                      myexpence.amount =
+                          int.parse(amountController.text.toString());
+                      myexpence.title = titleControler.text.toString();
 
-                        var now = new DateTime.now();
-                        var formatter = new DateFormat('dd-MM-yyyy');
-                        formattedDate = formatter.format(now);
+                      var now = new DateTime.now();
+                      var formatter = new DateFormat('dd-MM-yyyy');
+                      formattedDate = formatter.format(now);
 
-                        myexpence.created_at = formattedDate.toString();
+                      myexpence.created_at = formattedDate.toString();
 
-                        var result =
-                            myservices.insertexpenceservices(myexpence);
-                        print("=====>>>>>>=======$result=================");
+                      var result = myservices.insertexpenceservices(myexpence);
+                      print("=====>>>>>>=======$result=================");
 
-                        print("============$formattedDate=================");
-                        var _mySaving = MySaving();
-                        _mySaving.title = monthcontroller.text.toString();
-                        _mySaving.amount =
-                            int.parse(amountController.text.toString());
+                      print("============$formattedDate=================");
+                      var _mySaving = MySaving();
+                      _mySaving.title = monthcontroller.text.toString();
+                      _mySaving.amount =
+                          int.parse(amountController.text.toString());
 
-                        _mySaving.type = "Expense";
+                      _mySaving.type = "Expense";
 
-                        var resultShaving = myservices.insertSAvings(_mySaving);
+                      var resultShaving = myservices.insertSAvings(_mySaving);
 
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ViewExpence(),
-                            ));
-                      }
-                    },
-                    child: Text("Save Data")),
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewExpence(),
+                          ));
+                    }
+                  },
+                ),
                 ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        monthcontroller.text = "";
-                        amountController.text = "";
-                      });
-                    },
-                    child: Text("Clear")),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 99, 78, 12),
+                      minimumSize: Size(110, 40),
+                      onPrimary: Colors.white,
+                      shadowColor: Colors.red,
+                      elevation: 5,
+                    ),
+                    child: Text("Clear"))
               ],
             ),
-          ],
-        ),
-      ),
-    );
+          ]),
+        ));
   }
 }
 

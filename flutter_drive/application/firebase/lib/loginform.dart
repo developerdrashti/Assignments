@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -200,7 +201,9 @@ class _HomepageState extends State<Homepage> {
                     shape: const BeveledRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(5))),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    createUser(name: "ddd", number: "1212");
+                  },
                 ),
               ],
             )
@@ -209,4 +212,24 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+
+  Future createUser({required String name, required number}) async {
+    final docUser = FirebaseFirestore.instance.collection('users').doc();
+    final user = User(id: docUser.id, name: name, number: number);
+
+    final json = user.tojson();
+    await docUser.set(json);
+  }
+}
+
+class User {
+  String? id;
+  String? name;
+  String? number;
+  User({this.id = "", required this.name, required this.number});
+  Map<String, dynamic> tojson() => {
+        "id": id,
+        "name": name,
+        "number": number,
+      };
 }

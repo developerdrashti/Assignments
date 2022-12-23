@@ -77,28 +77,100 @@ class viewhisryState extends State<viewBudget> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 235, 221, 243),
       appBar: AppBar(
-        title: Text("view budget history"),
-        
-       
+        leading: Padding(
+          padding: EdgeInsets.only(left: 30),
+          child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        ),
+        toolbarHeight: 120.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(60),
+          ),
+        ),
+        centerTitle: true,
+        title: Text(
+          "View Budget History",
+          style: TextStyle(
+              fontSize: 20,
+              color: Color.fromARGB(255, 244, 244, 251),
+              fontWeight: FontWeight.w400),
+        ),
+        backgroundColor: Color.fromARGB(255, 110, 86, 11),
       ),
-      body: ListView.builder(
-          itemCount: HistrybudgetList.length,
-          itemBuilder: ((context, index) {
-            return Card(
-                child: ListTile(
-                    onTap: () {},
-                    leading: Icon(Icons.money_off_rounded),
-                    title: Text(
-                      HistrybudgetList[index].amount.toString(),
-                      style: TextStyle(fontSize: 20, color: Colors.blue),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: HistrybudgetList.length,
+                itemBuilder: ((context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
                     ),
-                    subtitle: Text(HistrybudgetList[index].month ?? ""),
-                    trailing:
-                        Text(HistrybudgetList[index].created_at.toString()),
-                    onLongPress: (() {
-                      _deletebudgetEntry(context, HistrybudgetList[index].id);
-                    })));
-          })),
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    elevation: 10,
+                    child: ListTile(
+                        onTap: () {},
+                        leading: Icon(
+                          Icons.arrow_circle_up_sharp,
+                          color: Colors.green,
+                          size: 50,
+                        ),
+                        title: Text(
+                          '${HistrybudgetList[index].month.toString()}',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
+                        ),
+                        subtitle: Text(
+                          '₹${HistrybudgetList[index].amount.toString()}',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w500),
+                        ),
+                        trailing: Icon(
+                          Icons.delete,
+                        )),
+                  );
+
+                  // ListTile(
+                  //   shape: RoundedRectangleBorder(
+                  //     side: BorderSide(color: Colors.white70, width: 0.1),
+                  //   ),
+                  //   leading: incos,
+                  //   title: Text(
+                  //     HistryList[index].title.toString(),
+                  //     style: TextStyle(
+                  //       fontSize: 18,
+                  //       fontWeight: FontWeight.w500,
+                  //     ),
+                  //   ),
+                  //   subtitle: Text('₹${HistryList[index].amount.toString()}',
+                  //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                  // ),
+
+                  // Container(
+                  //   margin: EdgeInsets.all(10),
+                  //   child: Card(
+                  //       child: ListTile(
+                  //           onTap: () {},
+                  //           leading: Icon(Icons.money_off_rounded),
+                  //           title: Text(
+                  //             HistrybudgetList[index].amount.toString(),
+                  //             style: TextStyle(fontSize: 20, color: Colors.blue),
+                  //           ),
+                  //           subtitle: Text(HistrybudgetList[index].month ?? ""),
+                  //           trailing:
+                  //               Text(HistrybudgetList[index].created_at.toString()),
+                  //           onLongPress: (() {
+                  //             _deletebudgetEntry(context, HistrybudgetList[index].id);
+                  //           }))),
+                  // );
+                })),
+          ),
+        ],
+      ),
     );
   }
 }

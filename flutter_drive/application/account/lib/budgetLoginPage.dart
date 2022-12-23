@@ -62,19 +62,22 @@ class _TrackerPageState extends State<TrackerPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        "money tracker",
+                        "Budget Tracker",
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
+                      SizedBox(
+                        height: 16,
+                      ),
                       Text(
-                        " budget application",
+                        " Track Your Budget And More Saving Your Balance",
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                         ),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(
-                        height: 50,
+                        height: 30,
                       ),
                       SizedBox(
                           width: double.maxFinite,

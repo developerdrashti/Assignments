@@ -78,27 +78,81 @@ class viewhisryState extends State<viewsaving> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 235, 221, 243),
-      appBar: AppBar(
-        title: Text("view transaction history"),
-      ),
-      body: ListView.builder(
-          itemCount: _allHistory.length,
-          itemBuilder: ((context, index) {
-            return Card(
-                child: ListTile(
-              onTap: () {
-                _deletesavingEntry(context, _allHistory[index].id);
-              },
-              leading: Icon(Icons.money_off_rounded),
-              title: Text(
-                _allHistory[index].amount.toString(),
-                style: TextStyle(fontSize: 20, color: Colors.blue),
-              ),
-              subtitle: Text(_allHistory[index].title ?? ""),
-              trailing: Text(_allHistory[index].type ?? ""),
-            ));
-          })),
-    );
+        backgroundColor: const Color.fromARGB(255, 235, 221, 243),
+        appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.only(left: 30),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+          ),
+          toolbarHeight: 120.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(60),
+            ),
+          ),
+          centerTitle: true,
+          title: Text(
+            "View History Transcation",
+            style: TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 244, 244, 251),
+                fontWeight: FontWeight.w400),
+          ),
+          backgroundColor: Color.fromARGB(255, 110, 86, 11),
+        ),
+        body: Column(children: [
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: _allHistory.length,
+                itemBuilder: ((context, index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    elevation: 10,
+                    child: ListTile(
+                        onTap: () {},
+                        leading: Icon(
+                          Icons.arrow_circle_up_sharp,
+                          color: Colors.green,
+                          size: 50,
+                        ),
+                        title: Text(
+                          '${_allHistory[index].amount.toString()}',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
+                        ),
+                        subtitle: Text(
+                          '₹${_allHistory[index].amount.toString()}',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w500),
+                        ),
+                        trailing: Icon(
+                          Icons.delete,
+                        )),
+                  );
+                  // body: ListView.builder(
+                  //     itemCount: _allHistory.length,
+                  //     itemBuilder: ((context, index) {
+                  //       return Card(
+                  //           child: ListTile(
+                  //         onTap: () {
+                  //           _deletesavingEntry(context, _allHistory[index].id);
+                  //         },
+                  //         leading: Icon(Icons.money_off_rounded),
+                  //         title: Text(
+                  //           _allHistory[index].amount.toString(),
+                  //           style: TextStyle(fontSize: 20, color: Colors.blue),
+                  //         ),
+                  //         subtitle: Text(_allHistory[index].title ?? ""),
+                  //         trailing: Text(_allHistory[index].type ?? ""),
+                  //       ));
+                })),
+          )
+        ]));
   }
 }

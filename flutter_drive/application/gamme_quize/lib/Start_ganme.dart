@@ -60,7 +60,7 @@ class _DesignState extends State<game_Quiz> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: ((context) => First()),
+                      builder: ((context) => q1()),
                     ),
                   );
                 },

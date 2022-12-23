@@ -1,19 +1,19 @@
 class MyBudget {
   int? id;
-  String? month;
+  String? name;
   int? amount;
-  String? created_at;
-  int? date;
-  int? time;
+  String? mode;
+  String? date;
+  String? time;
 
   MyBudgetMap() {
     var mapping = Map<String, dynamic>();
     mapping['id'] = id ?? null;
-    mapping['month'] = month!;
+    mapping['name'] = name!;
     mapping['amount'] = amount ?? null;
-    mapping['date'] = date ?? null;
-    mapping['time'] = time ?? null;
-    mapping['created_at'] = created_at ?? null;
+    mapping['date'] = date!;
+    mapping['time'] = time!;
+    mapping['mode'] = mode!;
 
     return mapping;
   }

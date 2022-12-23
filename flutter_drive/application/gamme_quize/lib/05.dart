@@ -4,38 +4,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gamme_quize/05.dart';
+import 'package:gamme_quize/06.dart';
 // import 'package:image_games/homepage.dart';
 // import 'package:image_games/qustions/q2.dart';
 // import 'package:image_games/qustions/q3.dart';
 // import 'package:image_games/qustions/q4.dart';
 // import 'package:image_games/qustions/q5.dart';
+// import 'package:image_games/qustions/q6.dart';
 // import 'package:simple_timer/simple_timer.dart';
 
 final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
-class q4 extends StatefulWidget {
-  int? r6;
-  q4({super.key, @required this.r6});
+class q5 extends StatefulWidget {
+  int? r8;
+  q5({super.key, @required this.r8});
 
   @override
-  State<q4> createState() => _Guess1State();
+  State<q5> createState() => _Guess1State();
 }
 
-class _Guess1State extends State<q4> {
-  int r7 = 0;
+class _Guess1State extends State<q5> {
+  int r9 = 0;
   bool isLogoVisible = true;
   List _selectedIndexs = [];
   List qustion = [
-    'A) Audi',
-    'B) Free logo',
-    'B) Red ribbon',
-    'D) audi',
+    'A) Toyota',
+    'B) Ferrari',
+    'B) Mercedes',
+    'D) Hyundai',
   ];
   List<int> score = [
-    0,
-    0,
     5,
+    0,
+    0,
     0,
   ];
 
@@ -47,8 +48,8 @@ class _Guess1State extends State<q4> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => q5(
-                    r8: r7!,
+              builder: ((context) => q6(
+                    r10: r9!,
                   ))));
     });
     super.initState();
@@ -69,7 +70,7 @@ class _Guess1State extends State<q4> {
                     child: Visibility(
                         visible: isLogoVisible,
                         child: Image.network(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMSx0KZI3nc2gOVLuJOB3-J5JXJDQdrTyVAQ&usqp=CAU",
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDU2etXFwk7uuuudEaLivX_OmWo9YXb6lfbw&usqp=CAU",
                           fit: BoxFit.fill,
                         )),
                   ),
@@ -86,8 +87,8 @@ class _Guess1State extends State<q4> {
                           onTap: () {
                             setState(() {
                               print(score[index]);
-                              r7 = widget.r6! + score[index];
-                              print(r7);
+                              r9 = widget.r8! + score[index];
+                              print(r9);
                               if (_isSelected) {
                                 _selectedIndexs.remove(index);
                                 print("is selected");
@@ -106,10 +107,6 @@ class _Guess1State extends State<q4> {
                                     ? Colors.red
                                     : Colors.indigo[900],
                                 borderRadius: BorderRadius.circular(50),
-                                // gradient: new LinearGradient(colors: [
-                                //   Color.fromARGB(255, 61, 51, 144),
-                                //   Color.fromARGB(255, 44, 28, 167),
-                                // ]),
                                 boxShadow: [
                                   new BoxShadow(
                                     color: Colors.grey,
