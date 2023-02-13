@@ -1,16 +1,13 @@
-# gamme_quize
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1671784404](https://user-images.githubusercontent.com/113018690/209308838-29ba23b4-0e4b-445b-957e-dd9c649c895f.png)
+![Screenshot_1671784508](https://user-images.githubusercontent.com/113018690/209308850-1545becc-2e2e-44c7-9144-59426037ba03.png)
+![Screenshot_1671784516](https://user-images.githubusercontent.com/113018690/209308852-20cac84f-acc4-411b-9c57-fa0d8a3a84da.png)
+![Screenshot_1671784524](https://user-images.githubusercontent.com/113018690/209308857-519aad06-7232-471f-9ccf-cba1bc71282f.png)
+![Screenshot_1671784531](https://user-images.githubusercontent.com/113018690/209308859-41f2603a-e1d7-41bc-b207-561990ce6113.png)
+![Screenshot_1671784539](https://user-images.githubusercontent.com/113018690/209308866-da8bb800-563e-4e33-b11c-6b61f1817934.png)
+![Screenshot_1671784548](https://user-images.githubusercontent.com/113018690/209308870-7147f66c-d90d-4cd2-b3db-fd1c0171aa18.png)
+![Screenshot_1671784555](https://user-images.githubusercontent.com/113018690/209308875-2df03035-3147-4531-aba5-3fb1428d45a0.png)
+![Screenshot_1671784565](https://user-images.githubusercontent.com/113018690/209308880-d52cd605-4142-4bd2-9c03-f43475ccf2a8.png)
+![Screenshot_1671784567](https://user-images.githubusercontent.com/113018690/209308887-c48df711-ad9f-4640-b429-c27a8999cb45.png)
+![Screenshot_1671784313](https://user-images.githubusercontent.com/113018690/209308890-9558983e-1f39-4766-aee1-10a54b6de285.png)
+![Screenshot_1671784395](https://user-images.githubusercontent.com/113018690/209308891-15288cc8-4dfb-46ad-8598-7fda8f4bec07.png)
+![Screenshot_1671784400](https://user-images.githubusercontent.com/113018690/209308893-0f09cade-3787-4a93-9489-9ecdc9cb945b.png)
