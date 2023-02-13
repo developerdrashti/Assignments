@@ -82,8 +82,25 @@ class viewhisryState extends State<ViewExpence> {
         appBar: AppBar(
           leading: Padding(
             padding: EdgeInsets.only(left: 30),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back)),
           ),
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 30),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => budgetMainPage())));
+                  },
+                  icon: Icon(Icons.home)),
+            ),
+          ],
           toolbarHeight: 120.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
@@ -131,8 +148,12 @@ class viewhisryState extends State<ViewExpence> {
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w500),
                         ),
-                        trailing: Icon(
-                          Icons.delete,
+                        trailing: IconButton(
+                          onPressed: () {
+                            _deleteexpenceEntry(context,
+                                _expencehistoryList[index].id.toString());
+                          },
+                          icon: Icon(Icons.delete),
                         )),
                   );
                   // body: ListView.builder(

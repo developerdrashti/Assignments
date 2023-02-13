@@ -132,7 +132,7 @@ class _welcomeState extends State<welcome> {
                               height: 50,
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GestureDetector(
                                   onTap: () {
@@ -207,6 +207,7 @@ class _welcomeState extends State<welcome> {
                               height: 40,
                             ),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GestureDetector(
                                   onTap: () {

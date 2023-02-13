@@ -25,11 +25,11 @@ class _TravelingState extends State<Traveling> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => international(),
-                        ));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => international(),
+                    //     ));
                   },
                   child: Container(
                     width: 155,
@@ -59,11 +59,11 @@ class _TravelingState extends State<Traveling> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => business(),
-                        ));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => business(),
+                    //     ));
                   },
                   child: Container(
                     //color: Colors.greenAccent,
@@ -103,11 +103,11 @@ class _TravelingState extends State<Traveling> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => corporate(),
-                        ));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => corporate(),
+                    //     ));
                   },
                   child: Container(
                     width: 155,
@@ -137,11 +137,11 @@ class _TravelingState extends State<Traveling> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => global(),
-                        ));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => global(),
+                    //     ));
                   },
                   child: Container(
                     width: 155,

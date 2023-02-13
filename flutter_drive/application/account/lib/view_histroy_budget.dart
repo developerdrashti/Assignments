@@ -1,3 +1,4 @@
+import 'package:account/budgetmainpage.dart';
 import 'package:account/myService.dart';
 import 'package:account/mybuget_model.dart';
 import 'package:flutter/material.dart';
@@ -79,8 +80,25 @@ class viewhisryState extends State<viewBudget> {
       appBar: AppBar(
         leading: Padding(
           padding: EdgeInsets.only(left: 30),
-          child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+          child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back)),
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(left: 30),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => budgetMainPage()));
+                },
+                icon: Icon(Icons.arrow_back)),
+          )
+        ],
         toolbarHeight: 120.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -113,7 +131,10 @@ class viewhisryState extends State<viewBudget> {
                     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     elevation: 10,
                     child: ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          _deletebudgetEntry(
+                              context, HistrybudgetList[index].id.toString());
+                        },
                         leading: Icon(
                           Icons.arrow_circle_up_sharp,
                           color: Colors.green,

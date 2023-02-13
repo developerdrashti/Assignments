@@ -14,7 +14,13 @@ class _mahabodhiState extends State<mahabodhi> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        Container(),
+        Container(
+          margin: EdgeInsets.only(top: 30),
+          child: Text(
+            "Mahabodhi Temple",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
         Container(
           margin: EdgeInsets.all(5),
           child: Image.asset(

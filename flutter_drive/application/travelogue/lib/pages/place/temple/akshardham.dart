@@ -148,19 +148,9 @@ class _akshardhamState extends State<akshardham> {
                 ],
               ),
               Container(
-                color: Colors.blueAccent,
-                width: 100,
-                height: 200,
-              ),
-              Container(
-                color: Colors.blueAccent,
-                width: 100,
-                height: 200,
-              ),
-              Container(
-                color: Colors.blueAccent,
-                width: 100,
-                height: 200,
+                child: Image.asset(
+                  'assets/image/swami3.jpg',
+                ),
               ),
             ],
           ),

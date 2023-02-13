@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travelogue/akshardham.dart';
-import 'package:travelogue/chhatarpur.dart';
+
 import 'package:travelogue/homescreen/pages/hotel/hotel.dart';
 import 'package:travelogue/homescreen/pages/place/garden/garden.dart';
 import 'package:travelogue/homescreen/pages/place/place.dart';

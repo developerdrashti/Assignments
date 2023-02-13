@@ -58,7 +58,10 @@ class _saibabaState extends State<saibaba> {
                               "      17, Lodhi Rd, Gokalpuri, Institutional Area, Lodi Colony, New Delhi, Delhi 110003",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                          )
+                          ),
+                          Container(
+                            child: Image.asset("assets/image/Sai-Baba.jpg"),
+                          ),
                         ],
                       ),
                     )

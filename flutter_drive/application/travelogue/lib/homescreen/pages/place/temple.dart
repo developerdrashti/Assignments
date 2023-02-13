@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelogue/Properties.dart';
-import 'package:travelogue/akshardham.dart';
-import 'package:travelogue/chhatarpur.dart';
+
 import 'package:travelogue/homescreen/pages/history/history.dart';
 import 'package:travelogue/kali.dart';
 import 'package:travelogue/mahabodhi.dart';

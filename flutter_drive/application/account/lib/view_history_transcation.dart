@@ -131,9 +131,15 @@ class viewhisryState extends State<viewsaving> {
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w500),
                         ),
-                        trailing: Icon(
-                          Icons.delete,
-                        )),
+                        trailing: IconButton(
+                            onPressed: () {
+                              print("Button press");
+                              _deletesavingEntry(
+                                  context, _allHistory[index].id.toString());
+                            },
+                            icon: Icon(
+                              Icons.delete,
+                            ))),
                   );
                   // body: ListView.builder(
                   //     itemCount: _allHistory.length,

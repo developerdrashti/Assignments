@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelogue/Properties.dart';
-import 'package:travelogue/akshardham.dart';
-import 'package:travelogue/chhatarpur.dart';
+// import 'package:travelogue/akshardham.dart';
+// import 'package:travelogue/chhatarpur.dart';
 import 'package:travelogue/homescreen/pages/history/history.dart';
 import 'package:travelogue/kali.dart';
 import 'package:travelogue/mahabodhi.dart';
@@ -82,292 +82,302 @@ class _webview4State extends State<webview4> {
       //   ),
       // ),
 
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => akshardham()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/akshardham.png',
-                            height: 105,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => akshardham()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/akshardham.png',
+                              height: 105,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "Akshardham",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "Akshardham",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => chhatarpur()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/Chhatarpur-Mandir.png',
-                            height: 110,
+                SizedBox(
+                  width: 20,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => chhatarpur()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/Chhatarpur-Mandir.png',
+                              height: 110,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "chhatarpur-mandir",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "chhatarpur-mandir",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => qutub_minar()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/qutub_minar.png',
-                            height: 105,
-                            width: 200,
+              ],
+            ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => qutub_minar()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/qutub_minar.png',
+                              height: 105,
+                              width: 200,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "qutub_minar",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "qutub_minar",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 30,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => yogmaya()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/Yogmaya.png',
-                            height: 105,
+                SizedBox(
+                  width: 30,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => yogmaya()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/Yogmaya.png',
+                              height: 105,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "Yogmaya",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "Yogmaya",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => kali()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/kali.png',
-                            height: 105,
-                            width: 200,
+              ],
+            ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => kali()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/kali.png',
+                              height: 105,
+                              width: 200,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "kali bari",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "kali bari",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 30,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => mahabodhi()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/Mahabodhi.png',
-                            height: 105,
+                SizedBox(
+                  width: 30,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => mahabodhi()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/Mahabodhi.png',
+                              height: 105,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "Mahabodhi",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "Mahabodhi",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => saibaba()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/Sai-Baba.jpg',
-                            height: 105,
-                            width: 200,
+              ],
+            ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => saibaba()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/Sai-Baba.jpg',
+                              height: 105,
+                              width: 200,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "Sai-Baba",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "Sai-Baba",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 30,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => shridigambar()),
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18), // Image border
-                        child: SizedBox.fromSize(
-                          child: Image.asset(
-                            'assets/image/Shri-Digambar.png',
-                            height: 105,
+                SizedBox(
+                  width: 30,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => shridigambar()),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 60),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(18), // Image border
+                          child: SizedBox.fromSize(
+                            child: Image.asset(
+                              'assets/image/Shri-Digambar.png',
+                              height: 105,
+                            ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "Shri-Digambar",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                        Text(
+                          "Shri-Digambar",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

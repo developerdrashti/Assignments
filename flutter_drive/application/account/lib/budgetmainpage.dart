@@ -114,125 +114,119 @@ class _budgetMainPageState extends State<budgetMainPage> {
               label: "Notification",
             ),
           ]),
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 235, 221, 243),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const ListTile(),
-              Container(
-                color: Colors.black12,
-                height: 1,
-                width: double.maxFinite,
+      body: Container(
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 235, 221, 243),
+        ),
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const ListTile(),
+            Container(
+              color: Colors.black12,
+              height: 1,
+              width: double.maxFinite,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 70, top: 30),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 90,
+                  ),
+                  Text(
+                    "YOUR BALANCE",
+                    style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    "₹${addbalance = addmoney - AddEpense}.00",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 148, 147, 147)),
+                  ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 70, top: 30),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 90,
-                    ),
-                    Text(
-                      "YOUR BALANCE",
-                      style:
-                          TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      "₹${addbalance = addmoney - AddEpense}.00",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 148, 147, 147)),
-                    ),
-                  ],
-                ),
+            ),
+            SizedBox(
+              height: 110,
+            ),
+            const Text(
+              "What kind of transaction it is? ",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Color.fromARGB(146, 0, 0, 0),
               ),
-              SizedBox(
-                height: 110,
-              ),
-              const Text(
-                "What kind of transaction it is? ",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(146, 0, 0, 0),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width - 120,
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: budgetTitleList.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) =>
-                                    budgetTitleList[index])));
-                      },
-                      child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 10),
-                          height: 85,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          child: Center(
-                            child: ListTile(
-                              leading: Image.asset(
-                                imgList[index],
-                                width: 40,
-                                height: 70,
-                                fit: BoxFit.cover,
-                              ),
-                              title: Text(
-                                budgetText[index],
-                                style: const TextStyle(
-                                    fontSize: 25,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              trailing: const Icon(
-                                Icons.forward,
-                                size: 30,
-                              ),
-                            ),
-                          )),
-                    );
-                  },
-                ),
-              ),
-              Center(
-                child: Expanded(
-                  child: GestureDetector(
-                    onTap: (() {
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width - 120,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: budgetTitleList.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => viewsaving())));
-                    }),
-                    child: Text(
-                      "Show All Transaction",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                    ),
+                              builder: ((context) => budgetTitleList[index])));
+                    },
+                    child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        height: 85,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                        child: Center(
+                          child: ListTile(
+                            leading: Image.asset(
+                              imgList[index],
+                              width: 40,
+                              height: 70,
+                              fit: BoxFit.cover,
+                            ),
+                            title: Text(
+                              budgetText[index],
+                              style: const TextStyle(
+                                  fontSize: 25,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            trailing: const Icon(
+                              Icons.forward,
+                              size: 30,
+                            ),
+                          ),
+                        )),
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: Expanded(
+                child: GestureDetector(
+                  onTap: (() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => viewsaving())));
+                  }),
+                  child: Text(
+                    "Show All Transaction",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -262,10 +256,6 @@ class _myBudgetState extends State<myBudget> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 235, 221, 243),
       appBar: AppBar(
-        leading: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
-        ),
         toolbarHeight: 120.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -481,10 +471,6 @@ class _myexpenceState extends State<myexpence> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 235, 221, 243),
         appBar: AppBar(
-          leading: Padding(
-            padding: EdgeInsets.only(left: 30),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
-          ),
           toolbarHeight: 120.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
